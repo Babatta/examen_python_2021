@@ -1,0 +1,104 @@
+
+{% include 'base/header.html' %}
+{% block content %}
+{% endblock %}
+
+<section id="pack" class="packages" >
+			<div class="container">
+
+				<div class="packages-content">
+
+					<div class="row"  style="height:400px; width:3500px; alligne:center">
+
+						<div class="col-md-4 col-sm-6">
+							<div class="single-package-item">
+								<img src="{{voyage.photo.url}}" alt="package-place" style="height:400px; width:3500px; allign:center">
+								<div class="single-package-item-txt">
+									<h3><i>{{voyage.nomvoyage}}</i></h3>
+									<h3><i>Prix Voyage en Frcfa:              {{voyage.prix}}</i> </h3>
+									<h3><i>Duree      {{voyage.duree}} heures </i></h3>
+									<div class="packages-para">
+
+
+									</div>
+
+						<div class="about-btn" style="center:letf">
+							  <ul>
+                                  <li>
+                                    <a href="{% url 'majvoyage' voyage.id %}"> <button class="book-btn">Modifier</button></a>
+								  </li>
+                             </ul>
+						</div>
+
+
+
+									<div class="about-btn" style="center:right">
+
+										<ul>
+    										<li>
+                                           <a href="{% url 'supvoyage' voyage.id %}"> <button class="book-btn" style="background-color:red">Supprimer</button></a>
+                                            </li>
+										</ul>
+
+								    </div>
+							</div>
+
+						</div>
+
+
+					</div><!--/.row-->
+				</div><!--/.packages-content-->
+			</div><!--/.container-->
+			</div>
+		</section>
+
+
+		<section id="blog" class="blog">
+			<div class="container">
+				<div class="blog-details">
+						<div class="gallary-header text-center">
+							<h2>
+								Liste des excursions
+							</h2>
+							<p>
+								Pour le voyage: {{ voyage.nomvoyage }}, vous avez la possiblitée de visiter ces coins du monde.<br>
+								Certaines sont inclus dans le voyage d'autre optionnelle.
+							</p>
+						</div><!--/.gallery-header-->
+						<div class="blog-content">
+							<div class="row">
+								{% for excursion in excursions %}
+								<div class="col-sm-4 col-md-4">
+									<div class="thumbnail">
+										<h2>{{excursion.nom}} <span>{{excursion.optionnelle}}</span></h2>
+										<div class="thumbnail-img">
+											<img src="{{excursion.photoexcursion.url }}" alt="blog-img">
+											<div class="thumbnail-img-overlay"></div>
+
+										</div>
+
+										<div class="caption">
+											<div class="blog-txt">
+												<h3>
+													<a href="#">
+														(Description ) Discover on beautiful weather.
+													</a>
+												</h3>
+<!--												<p>-->
+<!--													Lorem ipsum dolor sit amet, contur adip elit, sed do mod incid ut labore et dolore magna aliqua. Ut enim ad minim veniam-->
+<!--												</p>-->
+												<a href="{% url 'excursion' excursion.id %}">Savoir plus</a>
+											</div>
+										</div>
+									</div>
+
+								</div>
+									{% endfor %}
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+		</section>
+{% include 'base/footer.html' %}

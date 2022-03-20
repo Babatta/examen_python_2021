@@ -1,0 +1,47 @@
+
+{% include 'base/header.html' %}
+{% block content %}
+{% endblock %}
+<br xmlns="http://www.w3.org/1999/html">
+<br>
+<br>
+<br>
+<br>
+<form action="" method="POST" >
+
+    		<section id="subs" class="subscribe">
+			<div class="container">
+				<div class="subscribe-title text-center">
+					<h2>
+						Formulaire de modification d'un voyage
+					</h2>
+					<p>
+						{{voyage.nomvoyage}} a pour destination {{voyage.id_destination}}
+					</p>
+				</div>
+				<form>
+					<div class="row">
+						<div class="col-md-20 col-md-offset-3 col-sm-8 col-sm-offset-6">
+							<div class="">
+                                {% csrf_token %}
+                                 {{form}}<br>
+								<div class="about-btn">
+								<input type="submit" name="Enregistrer" class="book-btn"/>
+<!--								<button class="appsLand-btn subscribe-btn">Enregistrer</button>
+                                 <button type="submit" name="Enregistrer" class="about-view">Enregistrer</button>-->
+
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+				</form>
+			</div>
+
+		</section>
+
+</form>
+
+
+{% include 'base/footer.html' %}

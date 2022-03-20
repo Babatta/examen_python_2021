@@ -1,0 +1,97 @@
+
+{% include 'base/header.html' %}
+{% block content %}
+{% endblock %}
+
+
+<section id="pack" class="packages" >
+			<div class="container">
+
+				<div class="packages-content">
+
+					<div class="row"  style="height:400px; width:3500px; alligne:center">
+
+						<div class="col-md-4 col-sm-6">
+							<div class="single-package-item">
+								<img src="{{destination.image.url}}" alt="package-place" style="height:400px; width:3500px; allign:center">
+								<div class="single-package-item-txt">
+									<h3><br>Nom de la destination: <i>{{destination.pays}}</i></br><span class="pull-right"></span></h3>
+
+
+
+
+									<div class="about-btn" style="center:right">
+
+										<ul>
+                                           <a href="{% url 'add_voyage' destination.id%} "> <button class="book-btn" style="background-color:red">Ajouter un nouveau voyage </button></a>
+                                            </li>
+										</ul>
+
+								    </div>
+							</div>
+
+						</div>
+
+
+					</div><!--/.row-->
+				</div><!--/.packages-content-->
+			</div><!--/.container-->
+			</div>
+		</section>
+
+
+		<section id="blog" class="blog">
+			<div class="container">
+				<div class="blog-details">
+						<div class="gallary-header text-center">
+							<h2>
+								Liste des voyages:
+							</h2>
+							<p>
+								Pour la destination: {{ destination.pays }}, vous avez l'ensemble des voyages ci dessous.<br>
+
+							</p>
+						</div><!--/.gallery-header-->
+						<div class="blog-content">
+							<div class="row">
+								{% for voyage in voyages %}
+								<div class="col-sm-4 col-md-4">
+									<div class="thumbnail">
+										<h2>{{voyage.nomvoyage}} <span></span></h2>
+                                        <h2>{{voyage.prix}} <span>frcfa </span></h2>
+										 <h2>{{voyage.duree}} <span>heures </span></h2>
+										<div class="thumbnail-img">
+											<img src="{{voyage.photo.url }}" alt="blog-img">
+											<div class="thumbnail-img-overlay"></div>
+
+										</div>
+
+										<div class="caption">
+											<div class="blog-txt">
+												<h3>
+
+												</h3>
+<!--												<p>-->
+<!--													Lorem ipsum dolor sit amet, contur adip elit, sed do mod incid ut labore et dolore magna aliqua. Ut enim ad minim veniam-->
+<!--												</p>-->
+												<a href="{% url 'unvoyage' voyage.id %}">Savoir plus</a>
+											</div>
+										</div>
+									</div>
+
+								</div>
+									{% endfor %}
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+		</section>
+
+
+
+{% include 'base/footer.html' %}
+
+</body>
+</html>

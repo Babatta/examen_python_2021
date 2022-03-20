@@ -1,0 +1,45 @@
+{% include 'base/header.html' %}
+{% block content %}
+{% endblock %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<form action="" method="POST"  enctype = "multipart / form-data" >
+
+    		<section id="subs" class="subscribe">
+			<div class="container">
+				<div class="subscribe-title text-center">
+					<h2>
+						Formulaire de modification d'un voyage
+					</h2>
+					<p>
+						{{voyage.nomvoyage}} a pour destination {{voyage.id_destination}}
+					</p>
+				</div>
+
+				<form method="POST" class="form-form" action="{% url 'add_voyage' destination.id %}" enctype = "multipart / form-data">
+					   {% csrf_token %}
+					<div class="row">
+						<div class="col-md-20 col-md-offset-3 col-sm-8 col-sm-offset-6">
+							<div class="">
+
+                                {{form.as_p}}
+								<div class="about-btn">
+									<button type="submit" class="book-btn">Enregistrer</button>
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+				</form>
+			</div>
+
+		</section>
+
+</form>
+
+
+{% include 'base/footer.html' %}
